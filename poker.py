@@ -364,12 +364,21 @@ class Poker(object):
 def main():
     # Main game
 
-    numHands = eval(input('Enter number of hands to play: '))
-    # Ask user for number of hands to play
+    chips = 0
+    playerList =[]
+    numHands = 0
+    while True:
+        try:
+            numHands = int((input('Between 1 & 10, enter the number of players: ')))
+        except ValueError:
+            print('\nError! Value must be an integer between 1 & 10. Try again.\n')
+        else:
+            if (numHands < 2 or numHands > 10):
+                print("\nNumber of players must be between 1 & 10.\n")
+            else:
+                break
 
-    while (numHands < 2 or numHands > 10):
-        numHands = eval(input('Enter number of hands to play: '))
-        # Check that number of hands is between 2 & 10
+    # Ask user for number of hands to play
 
     game = Poker(numHands)
 
