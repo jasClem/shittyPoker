@@ -163,7 +163,8 @@ class Poker(object):
 
         for card in sortedHand:
             pointList.append(card.rank)
-        cardSum = pointList[0] * 13 ** 4 + pointList[1] * 13 ** 3 + pointList[2] * 13 ** 2 + pointList[3] * 13 + pointList[4]
+        cardSum = pointList[0] * 13 ** 4 + pointList[1] * 13 ** 3 + pointList[2] * 13 ** 2 + pointList[3] * 13 \
+                  + pointList[4]
         return cardSum
 
     def isRoyal(self, hand):
@@ -380,7 +381,7 @@ def main():
         except ValueError:
             print('\nError! Value must be an integer between 2 & 10. Try again.\n')
         else:
-            if (numHands < 2 or numHands > 10):
+            if numHands < 2 or numHands > 10:
                 print("\nNumber of players must be between 2 & 10.\n")
             else:
                 break
