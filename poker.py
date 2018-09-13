@@ -214,7 +214,8 @@ class Poker(object):
         sortedHand = sorted(hand, reverse=True)
         h = 8
         curRank = sortedHand[
-            1].rank  # since it has 4 identical ranks,the 2nd one in the sorted listmust be the identical rank
+            1].rank
+                # since it has 4 identical ranks,the 2nd one in the sorted list must be the identical rank
         count = 0
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
         for card in sortedHand:
@@ -233,10 +234,13 @@ class Poker(object):
         sortedHand = sorted(hand, reverse=True)
         h = 7
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
-        rankList = []  # create a list to store ranks
+        rankList = []
+        # create a list to store ranks
+
         for card in sortedHand:
             rankList.append(card.rank)
-        rank1 = sortedHand[0].rank  # The 1st rank and the last rank should be different in a sorted list
+        rank1 = sortedHand[0].rank
+        # The 1st rank and the last rank should be different in a sorted list
         rank2 = sortedHand[-1].rank
         numRank1 = rankList.count(rank1)
         numRank2 = rankList.count(rank2)
@@ -273,7 +277,8 @@ class Poker(object):
         flag = True
         h = 5
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
-        curRank = sortedHand[0].rank  # this should be the highest rank
+        curRank = sortedHand[0].rank
+        # this should be the highest rank
         for card in sortedHand:
             if card.rank != curRank:
                 flag = False
@@ -293,7 +298,8 @@ class Poker(object):
         sortedHand = sorted(hand, reverse=True)
         h = 4
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
-        curRank = sortedHand[2].rank  # In a sorted rank, the middle one should have 3 counts if flag=True
+        curRank = sortedHand[2].rank
+        # In a sorted rank, the middle one should have 3 counts if flag=True
         rankList = []
         for card in sortedHand:
             rankList.append(card.rank)
@@ -311,7 +317,8 @@ class Poker(object):
         h = 3
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
         rank1 = sortedHand[
-            1].rank  # in a five cards sorted group, if isTwo(), the 2nd and 4th card should have another identical rank
+            1].rank
+        # in a five cards sorted group, if isTwo(), the 2nd and 4th card should have another identical rank
         rank2 = sortedHand[3].rank
         rankList = []
         for card in sortedHand:
@@ -329,15 +336,18 @@ class Poker(object):
         sortedHand = sorted(hand, reverse=True)
         h = 2
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
-        rankList = []  # create an empty list to store ranks
-        rankCount = []  # create an empty list to store number of count of each rank
+        rankList = []
+        # create an empty list to store ranks
+        rankCount = []
+        # create an empty list to store number of count of each rank
         for card in sortedHand:
             rankList.append(card.rank)
         for each in rankList:
             count = rankList.count(each)
             rankCount.append(count)
         if rankCount.count(2) == 2 and rankCount.count(
-                1) == 3:  # There should be only 2 identical numbers and the rest are all different
+                1) == 3:
+            # There should be only 2 identical numbers and the rest are all different
             print("One Pair")
             self.totalPoints.append(totalPoint)
 
@@ -350,7 +360,8 @@ class Poker(object):
         sortedHand = sorted(hand, reverse=True)
         h = 1
         totalPoint = h * 13 ** 5 + self.point(sortedHand)
-        rankList = []  # create a list to store ranks
+        rankList = []
+        # create a list to store ranks
         for card in sortedHand:
             rankList.append(card.rank)
         print("High Card")
